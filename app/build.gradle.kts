@@ -8,7 +8,7 @@ plugins {
 
 android {
     namespace = "com.oscarcruz.prueba"
-    compileSdk = 36
+    compileSdk = 37
 
     defaultConfig {
         applicationId = "com.oscarcruz.prueba"
@@ -27,6 +27,9 @@ android {
         sourceCompatibility = JavaVersion.VERSION_21
         targetCompatibility = JavaVersion.VERSION_21
     }
+}
+kotlin {
+    jvmToolchain(21)
 }
 
 dependencies {
@@ -55,4 +58,10 @@ dependencies {
 
     debugImplementation(libs.androidx.compose.ui.tooling)
 
+}
+
+kotlin {
+    compilerOptions {
+        freeCompilerArgs.add("-Xannotation-default-target=param-property")
+    }
 }

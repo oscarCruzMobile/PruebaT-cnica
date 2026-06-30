@@ -7,7 +7,7 @@ espressoCore = "3.7.0"
 lifecycleRuntimeKtx = "2.11.0"
 activityCompose = "1.13.0"
 composeBom = "2026.06.00"
-kotlin = "2.4.0"
+kotlin = "2.3.10"
 ksp = "2.3.9"
 
 constraintlayoutCompose = "1.1.1"
@@ -20,6 +20,7 @@ coroutines = "1.11.0"
 retrofit = "3.0.0"
 converterSerialization = "3.0.0"
 lifecycle = "2.11.0"
+
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
 junit = { group = "junit", name = "junit", version.ref = "junit" }
