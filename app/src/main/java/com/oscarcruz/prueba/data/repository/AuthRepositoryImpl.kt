@@ -16,11 +16,11 @@ class AuthRepositoryImpl @Inject constructor(
 
     override suspend fun login(user: String, pass: String): Result<UserSession> {
         return try {
-
+val ip = getDeviceIpAddress()
             val request = LoginRequestDto(
                 usuario = user,
                 dispositivo = "ID_DISPOSITIVO_12345",
-                ip = "192.168.1.1",
+                ip = ip,
                 transferir = false,
                 token = "GUID",
                 clave = pass
@@ -41,15 +41,12 @@ class AuthRepositoryImpl @Inject constructor(
 
             if (response.codigo == 0 && response.resultado != null) {
                 sessionRepo.saveString("id_session", response.resultado.idSession)
-
-
                 val domainModel = response.toDomain()
                 Result.success(domainModel)
             } else {
                 Result.failure(Exception(response.mensaje ?: "Error desconocido"))
             }
         } catch (e: Exception) {
-            // Captura errores de red (SocketTimeout, UnknownHost, etc.)
             Result.failure(e)
         }
     }

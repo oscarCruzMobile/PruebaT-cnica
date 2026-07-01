@@ -13,8 +13,6 @@ class PreferencesRepository @Inject constructor(
     private val dataStore: DataStore<Preferences> // Hilt inyecta el DataStore que creamos arriba
 ) {
 
-    // ── Escritura Genérica ───────────────────────────────────────────────────
-
     suspend fun saveString(key: String, value: String) {
         dataStore.edit { it[stringPreferencesKey(key)] = value }
     }
